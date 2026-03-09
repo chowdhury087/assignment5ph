@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Issues Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="assets/github-logo.png" alt="" height="32" width="32">
+      <h2 style="margin: 0;">GitHub Issues Tracker</h2>
+    </div>
+
+    <div class="nav-right">
+
+      <input id="searchInput" placeholder="Search issues...">
+
+      <button onclick="searchIssue()">Search</button>
+      <button class="new-btn">+ New Issue</button>
+
+    </div>
+
+  </nav>
+
+  <section class="tabs">
+
+    <button class="tab active" onclick="changeTab(this,'all')">All</button>
+    <button class="tab" onclick="changeTab(this,'open')">Open</button>
+    <button class="tab" onclick="changeTab(this,'closed')">Closed</button>
+
+  </section>
+
+  <section class="issue-info">
+
+    <div style="display: flex; align-items: center; gap: 8px;">
+
+      <div
+        style="background-color: rgba(138, 43, 226, 0.2);height: 36px;width: 36px;border-radius: 18px; display: flex;justify-content: center;align-items: center;">
+        <img src="assets/Aperture.png" alt="Aperture Logo" height="20" width="20">
+      </div>
+      <div class="issue-info-text">
+        <h3 id="issueCount">0 Issues</h3>
+        <p>Track and manage your project issues</p>
+      </div>
+
+    </div>
+
+    <div class="status">
+
+      <span class="open-dot"></span> Open
+      <span class="closed-dot"></span> Closed
+
+    </div>
+
+  </section>
+
+  <div id="spinner" class="spinner"></div>
+
+  <section id="issuesContainer" class="grid"></section>
+
+
+  <div id="modal" class="modal">
+
+    <div class="modal-box">
+
+      <h2 id="modalTitle"></h2>
+
+      <div class="modal-meta">
+        <span id="modalStatusBadge" class="status-badge"></span>
+        <span id="modalMetaInfo" class="meta-info"></span>
+      </div>
+
+      <div class="modal-badges" id="modalBadges">
+        <span class="badge bug">BUG</span>
+        <span class="badge help">HELP WANTED</span>
+      </div>
+
+      <p id="modalDesc" class="modal-description"></p>
+
+      <div class="modal-footer">
+        <div class="footer-left">
+          <p class="footer-label">Assignee:</p>
+          <p id="modalAuthor" class="footer-value"></p>
+        </div>
+        <div class="footer-right">
+          <p class="footer-label">Priority:</p>
+          <p id="modalPriority" class="priority-badge"></p>
+        </div>
+      </div>
+
+      <button onclick="closeModal()" class="modal-close-btn">Close</button>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
